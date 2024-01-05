@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% block content %}
+<link rel="stylesheet" href="/static/login.css">
+<style>
+    .styled-table td {
+        border: 1px solid white;
+        padding: 8px;
+    }
+</style>
+{% include 'main_nav_bar.html' %}
+{% include 'message_template.html'%}
+
+<!-- <center>
+
+<div class="container">
+        <div class="col-md-6">
+            <div class="card" style="background-color: 	#E6E6FA">
+                <div class="card-body">
+    <h5>Login Form</h5>
+    <hr>
+            <form method="POST" class="border border-2 border-solid p-4">
+                {% csrf_token %}
+                <label for="Username" style="font-weight: bold;">USERNAME:</label>
+                <input style="border-radius:5px" type="text" name="username" id="username" placeholder="Username"/><br>
+                <label for="password" style="font-weight: bold;">PASSWORD:</label>
+                <input style="border-radius:5px" type="password" name="password" id="password" placeholder="password"/><br>
+                <button class="btn" type="submit" value="login">LOGIN</button>
+                <p>Haven't signedup yet?<a href="{% url 'patientsignup' %}">signup</a><p>
+            </form>
+        </div>
+        </div>
+    </div>
+</div>
+</center> -->
+<div class="container-fluid">
+    <div class="row main-content bg-success text-center">
+        <div class="col-md-4 text-center company__info">
+            <span class="company__logo"><img src="/static/images/patient2.png"></span>
+            <h4 class="company_title">Patient Login</h4>
+        </div>
+        <div class="col-md-8 col-xs-12 col-sm-12 login_form ">
+            <div class="container-fluid">
+                <div class="row">
+                    <h2>Log In</h2>
+                </div>
+                <div class="row">
+                    <form control="" class="form-group" method="POST" action="/patientlogin/">
+                        {% csrf_token %}
+                        <div class="row">
+                            <input type="text" name="username" id="username" class="form__input" placeholder="Username">
+                        </div>
+                        <div class="row">
+                            <!-- <span class="fa fa-lock"></span> -->
+                            <input type="password" name="password" id="password" class="form__input" placeholder="Password">
+                        </div>
+                        <div class="row">
+                            <input type="submit" value="Login" class="btn">
+                        </div>
+                        <div class="row">
+                            <p>Don't have an account? <a href="{% url 'patientsignup'%}">Register Here</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- {% if messages %}
+    <ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+    </ul>
+{% endif %}
+
+{% endblock %} -->

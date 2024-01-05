@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style1.css">
+    <style>
+        .form-area{
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            overflow-x: scroll;
+        }
+        .form-area .width{
+            width:320px;
+        }
+        .form-area th{
+            padding:15px 20px;
+        }
+        .form-area td{
+            padding: 20px 10px 20px 20px;
+            box-sizing: border-box;
+        }
+        .btn{
+            width: 110px;
+        }
+        .btn:hover{
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+        
+    </style>
+</head>
+<body>
+    {% include 'admin/nav_bar.html'%}
+    <div class="home-content">
+        {% include 'message_template.html' %}
+        {% if admin_id is None %}
+        <div class="login-msg-area">
+            <center><h4>{{loginmsg}}</h4></center>
+            <center><a class="btn btn-primary" href="/admin_login/">Login</a></center>
+        </div>
+        {% else %}
+        <div class="card-area">
+            <div class="form-area">
+                <form action="/add_patient/" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <table border="1">
+                        <tr align="center" >
+                            <th colspan="4">Add Patient</th>
+                        </tr>
+                        <tr>
+                            <td><label for="firstname">*First Name:</label></td>
+                            <td > <input name="firstname" type="text" class="form-control width" id="firstname" placeholder="First Name" required></td>
+                            <td><label for="lastname">*Last Name:</label></td>
+                            <td > <input name="lastname" type="text" class="form-control width" id="lastname" placeholder="Last Name" required></td>
+                        </tr>
+                        <tr>
+                            <td><label for="email">*Email:</label></td>
+                            <td> <input name="email" type="email" class="form-control width" id="email" placeholder="Email" required></td>
+                            <td><label for="Date">*Appointed Date:</label></td>
+                            <td> <input name="date" type="date" class="form-control width"  min="{{current_date}}" value={{current_date}} id="Date"required></td>
+                        </tr>
+                        <tr>
+                            <td><label for="age">*Age:</label></td>
+                            <td > <input name="age" type="number" class="form-control width" id="age" min="0" max="110" placeholder="Enter your age" required></td>
+                            <td><label for="mobileno">*Mobile Number:</label></td>
+                            <td ><input name="mobileno" type="tel" class="form-control width" id="mobileno" placeholder="Enter your Mobile Number"  pattern="[5-9]{1}[0-9]{9}" maxlength="10" required></td>
+                        </tr>
+                        <tr>
+                            <td><label for="department" >Select Department:</label></td>
+                            <td><select id="department" class="form-select width" name="department">
+                                <option selected>Choose...</option>
+                                {% for dept in departments %}
+                                    <option value="{{ dept.id }}">{{ dept.department }}</option>
+                                {% endfor %}
+                            </select>
+                            </td>
+                            <td><label for="doctor">Select Doctor:</label></td>
+                            <td >
+                                <select id="doctor" class="form-select width" name="doctor">
+                                    <option selected>Choose...</option>
+                                    <!-- Doctor options will be loaded dynamically using AJAX -->
+                                </select>
+                            </td>
+
+                            
+                        </tr>
+                        <tr>
+                            <td><label>Gender:</label></td>
+                            <td><input class="form-check-input" type="radio" name="gender" value="Male" id="male"> <label for="male">Male</label> 
+                                <input class="form-check-input" type="radio" name="gender" value="Female" id="female"> <label for="female">Female</label>
+                            </td>
+                            <td><label for="symptoms">*Symptoms:</label></td>
+                            <td ><input name="symptoms" type="text" class="form-control width" id="symptoms" placeholder="Symptoms"  maxlength="10" required></td>  
+                        </tr>
+                        <tr>
+                            <td><label for="image">*Upload Image:</label></td>
+                            <td ><input name="image" type="file" class="form-control width" id="image" accept=".jpg,.png" required></td>
+                            <td>
+                                <label for="Address">*Address:</label>
+                            </td>
+                            <td colspan="1">
+                                <textarea style="width:330px"class="form-control width" name="address" id="address"  cols="300" rows="3" placeholder="Enter the Address here" required></textarea>
+                            </td>
+                        </tr>
+                        <tr >
+                            <td>
+                                <label for="description">Description:</label>
+                            </td>
+                            <td colspan="1">
+                                <textarea style="width:300px"class="form-control width" name="description" id="description"  cols="300" rows="3" placeholder="Provide Some description about problem"></textarea>
+                            </td>
+                        </tr>
+                        <tr >
+                            <td><a href="/admin_patient/" class="btn btn-danger">Cancel</a></td>
+                            <td ><input type="reset" class="btn btn-danger"value="Clear"></td>
+                            <td></td>
+                            <td align="right">
+                                <input type="submit" class="btn btn-primary"value="Appoint">
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+    {% include 'scripts.html' %}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#department').on('change', function() {
+                var departmentId = $(this).val();
+                $.ajax({
+                    url: '/get_doctors_by_department/',
+                    data: {'department_id': departmentId},
+                    success: function(data) {
+                        $('#doctor').html(data);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

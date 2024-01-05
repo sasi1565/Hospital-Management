@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+{% include 'doctor/doctor_navbar.html' %}
+{% comment %} {% include 'doctor/doctor_navbar.html' %} {% endcomment %}
+{% include 'message_template.html'%}
+<br><br><br><br><br><br><br><br><br>
+<center>
+<div class="row" style="margin-left:200px;">
+<div class="col-md-10">
+            <div class="card card-body">
+                <a href="" class="btn btn-primary btn-sm btn-block">APPOINTMENT DETAILS</a>
+                    <table class="table table-sm">
+                        <tr>
+                            <th>Firstname</th>
+                            <th>Lastname</th>
+                            <th>Age</th>
+                            <th>Symptoms</th>
+                            <th>Description</th>
+                            <th>Date</th>
+                            <th>Remove</th>
+                        </tr>
+                        <tbody>
+                           
+        <tr>
+            <td>{{patient.firstname}}</td>
+            <td>{{patient.lastname}}</td>
+            <td>{{patient.age}}</td>
+            <td>{{patient.symptoms}}</td>
+            <td>{{patient.description}}</td>
+            <td>{{patient.date}}</td>
+            <td><a class="btn btn-sn btn-primary" href="{% url 'doctordeletepatient' patient.id %}">treated</a></td>
+        </tr>
+    
+        </tbody>
+                    </table>
+            </div>
+
+        </div>
+    </center>
+{% endblock %}

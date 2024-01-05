@@ -1,0 +1,182 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+{% include 'navbar.html' %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{% comment %} <style>
+    .home-container{
+      display:grid;
+      grid-template-columns: 1fr 3fr;
+    }
+  </style>
+<br><br>
+<br>
+  <hr>
+<div>
+    <div class="home-container">
+      <div>
+        <h3>SEARCH DOCTORS HERE</h3>
+        <form method="GET" action="{% url 'home' %}">
+            <input type="text" name="q" placeholder="SEARCH..."/>
+          </form>
+        <hr>
+        <div>
+          <a href="{% url 'home' %}">all</a>
+        </div>
+        {% for topic in topics %}
+        <div>
+          <a href="{% url 'home' %}?q={{topic.department}}">{{topic.department}}</a>
+        </div>
+        {% endfor %}
+      </div>
+        <h1>{{doctor_count}}<h1>
+        {% if has_firstname %}
+        {% for i in doctors %}
+        
+        <div>
+          <span>{{i.firstname}}</span>
+          <span>{{i.lastname}}</span>
+        </div>
+        {% endfor %}
+        {% endif %}
+      </div>
+    </div> {% endcomment %}<br><br>
+   {% comment %} <style>
+      body{
+        background-image:url("{% static 'images/bg1.jpeg' %}");
+      }
+    </style> {% endcomment %}
+    <style media="screen">
+      .jumbotron {
+        margin-top: 0px;
+        margin-bottom: 0px;
+        background-image: url('{% static "images/bg.jpg" %}');
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+      .glow {
+        font-size: 50px;
+        color: white;
+        text-align: center;
+        -webkit-animation: glow 1s ease-in-out infinite alternate;
+        -moz-animation: glow 1s ease-in-out infinite alternate;
+        animation: glow 1s ease-in-out infinite alternate;
+      }
+      @-webkit-keyframes glow {
+        from {
+          text-shadow: 0 0 10px #eeeeee, 0 0 20px #000000, 0 0 30px #000000, 0 0 40px #000000, 0 0 50px #9554b3, 0 0 60px #9554b3, 0 0 70px #9554b3;
+        }
+  
+        to {
+          text-shadow: 0 0 20px #eeeeee, 0 0 30px #fa2d2d, 0 0 40px #fa2d2d, 0 0 50px #fa2d2d, 0 0 60px #fa2d2d, 0 0 70px #fa2d2d, 0 0 80px #fa2d2d;
+        }
+      }
+      .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        max-width: 300px;
+        margin: auto;
+        text-align: center;
+        font-family: arial;
+      }
+  
+      .title {
+        color: grey;
+        font-size: 18px;
+      }
+  
+      button {
+        border: none;
+        outline: 0;
+        display: inline-block;
+        padding: 8px;
+        color: white;
+        background-color: #000;
+        text-align: center;
+        cursor: pointer;
+        width: 100%;
+        font-size: 18px;
+      }
+  
+      button:hover,
+      a:hover {
+        opacity: 0.7;
+      }
+  
+      .grid-container {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        padding: 10px;
+      }
+  
+      a:link {
+        text-decoration: none;
+      }
+  
+      a {
+        color: white;
+      }
+    </style>
+    <div class="jumbotron" style="margin-bottom: 0px;margin-top: 0px; height:800px">
+      <br>
+      <h5 class="display-3 glow" style="text-align:center">HOSPITAL MANAGEMENT SYSTEM</h5>
+      <br><br><br><br><br>
+      <p>
+      <h3>Emergency ?</h3>
+    
+      <p class="lead">
+        <a class="btn btn-danger btn-lg" href="/patientclick" role="button">Take Appointment Now!</a>
+      </p>
+      <br><br>
+    </div>
+    <div class="grid-container">
+      <div class="grid-item">
+        <div class="card">
+          <img src="{% static 'images/admin.png' %}" alt="John" style="width:100%">
+          <p class="title">ADMIN</p>
+          <p><button><a href="/admin_login/">View</a></button></p>
+        </div>
+  
+      </div>
+      <div class="grid-item">
+        <div class="card">
+          <img src="{% static 'images/doctor.png' %}" alt="John" style="width:100%">
+          <p class="title">DOCTOR</p>
+          <p><button><a href="/doctorclick">View</a></button></p>
+        </div>
+      </div>
+  
+      <div class="grid-item">
+        <div class="card">
+          <img src="{% static 'images/patient.jpg' %}" alt="John" style="width:100%">
+          <p class="title">PATIENT</p>
+          <p><button><a href="/patientclick">View</a></button></p>
+        </div>
+      </div>
+  
+    </div>
+
+<style>
+  .container {
+    margin: 20px;
+  }
+
+  .row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+
+  .col-md-4 {
+    width: 50%;
+  }
+
+  .data-box {
+    background-color: white;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+</style>
+
+
+
+{% endblock %}

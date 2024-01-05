@@ -1,0 +1,103 @@
+<link href="/static/style1.css" rel="stylesheet">
+<link href="/static/doctor_navbar.css" rel="stylesheet">
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- <nav>
+        <div class="nav-area">
+            <div class="profile-area">
+                <div clas="profile-img">
+                    <center>
+                        <img id="img" src="/static/admin-img.jpeg" alt="profile ">
+                        <h3 style="color: white; padding-bottom: 20px;">Admin</h3> 
+                    </center>
+                </div>
+            </div>
+            <div class="nav-bar">
+                <ul>
+                    <li>
+                        <a class="navbar-link {% if request.path == '/admin_dash/' %}active {% endif %}" href="/admin_dash/"><span class="material-symbols-outlined">bar_chart_4_bars</span>Dashboard</a>
+                    </li>
+                    <li>
+                        <a class="navbar-link {% if request.path == '/admin_doctor/' %}active {% endif %}" href="/admin_doctor/"><span class="material-symbols-outlined">stethoscope</span>Doctors</a>
+                    </li>
+                    <li>
+                        <a class="navbar-link {% if request.path == '/admin_patient/' %}active {% endif %}" href="/admin_patient/"><span class="material-symbols-outlined">personal_injury</span>Patients</a>
+                    </li>
+                    <li>
+                        <a class="navbar-link {% if request.path == '/appointment_record/' %}active {% endif %}" href="/appointment_record/"><span class="material-symbols-outlined">demography</span>Appointments</a>
+                    </li>
+                    <li>
+                        <a class="navbar-link {% if request.path == '/admin_contact/' %}active {% endif %}" href="/admin_contact/"><span class="material-symbols-outlined">contact_support</span>Contact Us</a>
+                    </li>
+                    <li>
+                        <a class="navbar-link " href="/log_out/"><span class="material-symbols-outlined">logout</span>Logout</a>
+                    </li> 
+              </ul>
+            </div>
+        </div>
+    </nav> -->
+    <link rel="stylesheet" href="/static/doctor_navbar.css">
+
+  <div class="sidebar">
+    <div class="logo-details">
+        <i></i>
+      <span class="logo_name">Admin</span>
+    </div>
+      <ul class="nav-link">
+        <li>
+          <a href="/admin_dash/" class="{% if request.path == '/admin_dash/'%}active{% endif %}">
+            <i class="material-symbols-outlined">bar_chart_4_bars</i>
+            <span class="links_name">Dashboard
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="/admin_doctor/" class="{% if request.path == '/admin_doctor/'%}active{% endif %}">
+            <i class="material-symbols-outlined">stethoscope</i>
+            <span class="links_name">Doctors</span>
+          </a>
+        </li>
+        <li>
+          <a href="/admin_patient/" class="{% if request.path == '/admin_patient/'%}active{% endif %}">
+            <i class="material-symbols-outlined">personal_injury</i>
+            <span class="links_name">Patients</span>
+          </a>
+        </li>
+        <li>
+          <a href="/appointment_record/" class="{% if request.path == '/appointment_record/'%}active{% endif %}">
+            <i class="material-symbols-outlined">demography</i>
+            <span class="links_name">Appointments</span>
+          </a>
+        </li>
+        <li>
+          <a href="/admin_contact/" class="{% if request.path == '/admin_contact/'%}active{% endif %}">
+            <i class="material-symbols-outlined">contact_support</i>
+            <span class="links_name">Feedback</span>
+          </a>
+        </li>
+        <li class="log_out">
+          <a href="/log_out/">
+          <i class='bx bx-log-out'></i>
+          <span class="links_name">Log out</span>
+          </a>
+      </li>
+      
+      </ul>
+      
+  </div>
+  <section class="home-section">
+    <nav>
+      <div class="sidebar-button">
+        <i class='bx bx-menu sidebarBtn'></i>
+        <span class="dashboard">
+          {% if request.path == '/admin_dash/' %}Dashboard{% endif %}
+          {% if request.path == '/admin_doctor/' %}Doctors{% endif %}
+          {% if request.path == '/admin_patient/' %} Patients {% endif %}
+          {% if request.path == '/appointment_record/' %}Appoinments{% endif %}
+          {% if request.path == '/admin_contact/'%}Feedback{% endif %}</span>
+      </div>
+      <div class="profile-details">
+        <span class="admin_name" style="font-size:30px">{{request.session.admin_id}}</span>
+      </div>
+    </nav>
+    <!-- <script src="/static/script.js"></script> -->
+    <script src="/static/admin_navbar.js"></script>

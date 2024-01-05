@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+{% include 'main_nav_bar.html' %}
+{% include 'message_template.html'%}
+<style>
+    p{
+        font-size:large;
+    }
+    h1{
+        font-size:100px;
+    }
+    .navbar{
+      background-color: #379eca;
+  }
+</style>
+    <br>
+    <br>
+    <br><br><br> <br><br>
+    <div class="header" style="text-align: center;">
+        <h1>Hello Patient!!</h1>
+        <p>Welcome to Hospital Management System</p>
+        <p>You can access various features after Login/SignUp</p>
+    </div>
+    <center>
+    <div class="action-buttons" style="align-items: center;">
+        <a href="{% url 'patientsignup' %}" class="btn btn-primary">Register</a>
+        <a href="{% url 'patientlogin' %}" class="btn btn-success">Login</a>
+    </div>
+    <center>
+{% endblock %}

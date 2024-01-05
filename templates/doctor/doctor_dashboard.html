@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!-- Coding by CodingNepal | www.codingnepalweb.com -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title> Doctor Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
+  {% include 'doctor/doctor_navbar.html' %}
+    <div class="home-content">
+      {% include 'message_template.html'%}
+      <div class="overview-boxes">
+        <div class="box">
+          <div class="right-side">
+            <div class="box-topic">Total Appointments</div>
+            <div class="number">{{total}}</div>
+            <div class="indicator">
+              <i class='bx bx-up-arrow-alt'></i>
+              <span class="text">count</span>
+            </div>
+          </div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-calendar" viewBox="0 0 16 16">
+            <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
+          </svg>
+        </div> 
+      </div>
+      <div class="sales-boxes">
+        <div class="recent-sales box">
+          <div class="title">Appointments</div>
+          {% for i in appointment %}
+          <div class="sales-box">
+            <div class="sales-details">
+              <ul class="details">
+                <li>{{i.firstname}}</li>
+                <li>{{i.date}}</li>
+              </ul>
+            </div>
+            <div class="button">
+              <a href="{% url 'patient' i.id %}">view</a>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+    </div>
+
+  </section>
+  
+</body>
+</html>

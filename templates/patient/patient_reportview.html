@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+{% include 'patient/pat_navbar.html' %}
+{% include 'message_template.html'%}
+<center>
+<br>
+<h1>YOUR REPORT HISTORY TILL NOW IS</h1>
+<br>
+<div class="row" style="margin-left:200px;">
+    <div class="col-md-10">
+                <div class="card card-body">
+                    <a href="" class="btn btn-warning btn-sm btn-block" style="font-size:25px">PATIENT REPORTS</a>
+                <table class="table table-sm">
+    <tr>
+      <th>name</th>
+      <th>report</th>
+      <th>date</th>
+    </tr>
+{% for i in instance %}
+<div>
+    <tr> 
+            <td><span>{{i.patient}}</span></td>
+            <td><a href="{{i.report }}" download="{{ i.report.name }}">Download File</a></td>
+            <td>{{i.date}}</td>
+    </tr>
+</div> 
+{% endfor %}
+</table>
+</center>
+{% endblock %}

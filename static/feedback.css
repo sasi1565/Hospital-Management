@@ -1,0 +1,51 @@
+div.card {
+    width: 250px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+.navbar{
+   /* background-color: #379eca;*/
+   background-color: #379eca;
+}
+.card{
+    margin-top: 50px;
+    
+}
+.login-head{
+    border-radius: 5px;
+    padding:7px ;
+
+}
+.login-body{
+  border: 1px black solid;
+  border-radius: 10px;
+}
+.login-items{
+    padding: 20px 0px;
+}
+.login-area{
+  display: flex;
+  justify-content: center;
+}
+.mb-3{
+    margin:10px 10px 0px 20px;
+}
+input.btn{
+    margin:10px 10px 10px 20px;
+    float: right;
+}
+.btn:hover{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+a.btn{
+    margin:10px 10px 10px 20px;
+    float: left;
+}
+.navbar a .btn{
+  margin:auto;
+  float: left;
+}
+.card .type{
+  margin: 0px 15px 5px 15px;
+  border:1px black solid; 
+  border-radius: 10px;
+}

@@ -1,0 +1,125 @@
+/* div.card {
+            width: 250px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+          }*/
+          .navbar{
+            background-color: #379eca;
+         }
+         /*.card{
+             margin-top: 100px;
+             
+         }
+         .login-head{
+             background-color: skyblue;
+             border-radius: 5px;
+             text-align: center;
+             padding-top:7px ;
+             padding-bottom:7px ;
+ 
+         }
+         .login-items{
+             padding: 20px 0px;
+         }
+         .login-area{
+             display: flex;
+             justify-content: center;
+         }
+         .mb-3{
+             margin:10px 10px 0px 20px;
+         }
+         input.btn{
+             margin:10px 10px 10px 20px;
+             float: right;
+         }
+         .btn:hover{
+             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+         }
+         a.btn{
+             margin:10px 10px 10px 20px;
+             float: left;
+         }*/
+         .main-content{
+             width: 45%;
+             border-radius: 20px;
+             box-shadow: 0 5px 5px rgba(0,0,0,.4);
+             margin: 5em auto;
+             display: flex;
+         }
+         .company__info{
+             background-color: #379eca;
+             border-top-left-radius: 20px;
+             border-bottom-left-radius: 20px;
+             display: flex;
+             flex-direction: column;
+             justify-content: center;
+             color: #fff;
+         }
+         .fa-android{
+             font-size:3em;
+         }
+         .company__logo{
+                text-align: center;
+                margin-bottom: 2em;
+         }
+            .company__logo img{
+                width: 150px;
+                height: 150px;
+            }
+         @media screen and (max-width: 640px) {
+             .main-content{width: 90%;}
+             .company__info{
+                 display: none;
+             }
+             .login_form{
+                 border-top-left-radius:20px;
+                 border-bottom-left-radius:20px;
+             }
+         }
+         @media screen and (min-width: 642px) and (max-width:800px){
+             .main-content{width: 70%;}
+         }
+         .row > h2{
+             color:#379eca;
+         }
+         .login_form{
+             background-color: #fff;
+             border-top-right-radius:20px;
+             border-bottom-right-radius:20px;
+             border-top:1px solid #ccc;
+             border-right:1px solid #ccc;
+         }
+         form{
+             padding: 0 2em;
+         }
+         .form__input{
+             width: 100%;
+             border:0px solid transparent;
+             border-radius: 0;
+             border-bottom: 1px solid #aaa;
+             padding: 1em .5em .5em;
+             padding-left: 2em;
+             outline:none;
+             margin:1.5em auto;
+             transition: all .5s ease;
+         }
+         .form__input:focus{
+             border-bottom-color: #379eca;
+             box-shadow: /*0 0 5px rgba(0,80,80,.4);*/0 0 5px #0f85b8;
+             border-radius: 4px;
+         }
+         .btn{
+             transition: all .5s ease;
+             width: 70%;
+             border-radius: 30px;
+             color:#379eca;/*#008080;*/
+             font-weight: 600;
+             background-color: #fff;
+             border: 1px solid #379eca;
+             margin-top: 1.5em;
+             margin-left: 3em;
+             margin-bottom: 1em;
+         }
+         .btn:hover, .btn:focus{
+             background-color: #379eca;
+             color:#fff;
+         }

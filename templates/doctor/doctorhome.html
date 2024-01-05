@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+{% include 'doctor_navbar.html' %}
+{% comment %} <p>HELLO {{request.user}}!!</p>
+{% comment %} {% if request.user.is_authenticated %}
+<a href="{% url 'doctorlogout' %}">Logout</a>
+{% else %}
+<a href="{% url 'doctorlogin' %}">Login</a>
+{% endif %} {% endcomment %}
+<p>{{count}}</p> {% endcomment %}
+{% endblock %}

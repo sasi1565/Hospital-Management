@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <style>
+        div.card {
+            width: 250px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+          }
+        .navbar{
+            background-color: #379eca;
+        }
+        .card{
+            margin-top: 100px;
+            
+        }
+        .login-head{
+            background-color: rgb(250, 250, 23);
+            border-radius: 5px;
+            text-align: center;
+            padding-top:7px ;
+            padding-bottom:7px ;
+
+        }
+        .login-items{
+            padding: 20px 0px;
+        }
+        .login-area{
+            display: flex;
+            justify-content: center;
+        }
+        .mb-3{
+            margin:10px 10px 0px 20px;
+        }
+        .mb-3-mod{
+            margin:10px 10px 0px 20px;
+            display: inline-block;
+        }
+        input.btn{
+            margin:10px 10px 10px 20px;
+            float: right;
+        }
+        .btn:hover{
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+        a.btn{
+            margin:10px 10px 10px 20px;
+            float: left;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+              <a class="navbar-brand" style="font-size:30px; font-family:Arial, Helvetica, sans-serif" href="main_login.html"><strong>Hospital Management System</strong> </a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="float-left">
+                <div class="collapse navbar-collapse " id="navbarNav">
+                    <ul class="navbar-nav">
+                      <li class="nav-item">
+                        <a class="nav-link active" style="font-size: large;" aria-current="page" href="user_login.html">Patient</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Contact Us</a>
+                      </li>
+                    </ul>
+                  </div>
+              </div>
+            </div>
+          </nav>
+    </div>
+    <div class="container">
+        <div class="login-area">
+            <div class="card" style="width: 38rem;">
+                <div class="login-head">
+                    <h2 >Registration Form</h2>
+                </div>
+                <div class="login-body">
+                    <form method="post" action="">
+                        {% csrf_token %}
+                        <h4 style="padding:10px 0px 0px 20px;">Please enter your details</h4>
+                        <div class="mb-3-mod">
+                            <label for="fname" class="form-label">First Name:</label>
+                            <input style="width: 250px;" type="text" class="form-control" id="fname" placeholder="First Name" required>
+                        </div>
+                        <div class="mb-3-mod">
+                            <label for="lname" class="form-label">Last Name:</label>
+                            <input style="width: 250px;" type="text" class="form-control" id="lname" placeholder="Last Name" required>
+                        </div>
+                        <div class="mb-3-mod">
+                            <label for="height" class="form-label">Height:</label>
+                            <input style="width: 250px;" type="number" class="form-control" id="height" placeholder=" Height" value="0">
+                        </div>
+                        <div class="mb-3-mod">
+                            <label for="weight" class="form-label">Weight:</label>
+                            <input style="width: 250px;" type="number" class="form-control" id="weight" placeholder="Weight" value="0">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email Address:</label>
+                            <input type="email" class="form-control" id="email" placeholder="name@example.com" required>
+                        </div>
+                        <div class="mb-3-mod">
+                            <label for="password" class="form-label">Password:</label>
+                            <input style="width: 250px;" type="password" class="form-control" id="password" placeholder="Password" required>
+                        </div>
+                        <div class="mb-3-mod">
+                            <label for="password" class="form-label">Confirm Password:</label>
+                            <input style="width: 250px;" type="password" class="form-control" id="password" placeholder="Password" required>
+                        </div>
+                        <div>
+                            <input class="btn btn-primary" type="submit">
+                            <a class="btn btn-danger" href="/main_login/">Back to Home</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% include 'scripts.html' %}
+</body>
+</html>

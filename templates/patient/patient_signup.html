@@ -1,0 +1,81 @@
+
+{% extends 'base.html' %}
+{% block content %}
+{% include 'main_nav_bar.html'%}
+{% include 'message_template.html'%}
+{% if form.errors %}
+  <div class="error">
+    <strong>Error occured because:</strong>
+    {{ form.errors }}
+  </div>
+{% endif %}
+<br><br><br><br>
+<style>
+    .styled-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin:right;
+    }
+    .styled-table td {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+    .btn{
+        background-color:teal;
+        color: #ffffff;
+        width: 100%;
+        
+    }
+    .card{
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+    }
+</style>
+<center>
+<div class="container">
+        <div class="col-md-6">
+            <div class="card" style="background-color:powderblue;">
+                <div class="card-body" >
+    <h3>Registration Form</h3>
+    <hr>
+            <form method="POST" class="border border-2 border-solid p-4" action="{% url 'patientsignup' %}">
+                {% csrf_token %}
+                <table>
+                    <tr>
+                    <td style="font-weight: bold;">{{form.username.label}}:</td>
+                    <td>{{form.username}}</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;">{{form.email.label}}:</td>
+                        <td>{{form.email}}</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;"><label for="password">Password:</label> </td>
+                        <td><input type="password" value="" class="form-control" name="password" id="password" required></td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;"><label for="cpassword">Confirm Password:</label> </td>
+                        <td><input type="password" value="" class="form-control" name="cpassword" id="cpassword" required><br></td>
+                    </tr>
+                    
+                    </table><br>
+                    <button class="btn" type="submit">Register</button>
+                    <p>Already have an account?<a href="{% url 'patientlogin' %}">login</a><p></p>
+            </form>
+        </div></div></div></div>
+    <center>
+        <!-- {% if messages %}
+        <ul class="messages">
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+        </ul>
+        {% endif %} -->
+        <!-- {% if form.errors %}
+  <div class="error">
+    <strong>Error occured because:</strong>
+    {{ form.errors }}
+  </div>
+{% endif %} -->
+
+  
+{% endblock %}

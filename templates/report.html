@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+  input[type="text"] {
+      width: 200px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+      font-size: 14px;
+  }
+  input[type="text"]::placeholder {
+      color: #999;
+  }
+</style>
+
+<div>
+  {% include 'doctor/doctor_navbar.html' %}
+<div class="home-content">
+  {% include 'message_template.html'%}
+      <div>
+        <center>
+        <h3>SEARCH PATIENTS HERE:</h3>
+        <form method="GET" action="{% url 'report' %}">
+            <input type="text" name="q" placeholder="SEARCH..."/>
+            <input type="submit" value="search" class="btn btn-primary">
+            <i class='bx bx-search' ></i>
+            <button class="btn btn-success"><a href="{% url 'report' %}"></a>view all</button>
+          </form>
+        <hr>
+        {% for i in context %}
+        <div>
+          <a href="{% url 'report' %}?q={{i.patient}}">{{i.patient}}</a>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="row" style="margin-left:200px;">
+      <div class="col-md-10">
+                  <div class="card card-body">
+                      <a href="" class="btn btn-warning btn-sm btn-block" style="font-size:25px">PATIENT REPORTS</a>
+                          <table class="table table-sm">
+            <tr>
+              <th>Name</th>
+              <th>Report</th>
+              <th>Date</th>
+            </tr>
+        {% for i in report %}
+        <tbody>
+         <tr> 
+          <td><span>{{i.patient}}</span></td>
+          {% comment %} <span><img src="media/{{i.report}}" alt="report"></span>
+          <span>{{i.report.url}}</span> {% endcomment %}
+          <td><a href="{{i.report }}" download="{{ i.report.name }}">Download File</a></td>
+          {% comment %} <a href="{{ i.report.url }}" download="{{ i.report.name }}">Image</a> {% endcomment %}
+                <td><span>{{i.date}}</span></td>
+         </tr>
+        {% endfor %}
+        {% comment %} {% for i in report %}
+        <span>{{i.report}}</span>
+        {% endfor %} {% endcomment %}
+        </tbody>
+      </table>
+  </center>
+</div>
+</section>
+{% endblock %}

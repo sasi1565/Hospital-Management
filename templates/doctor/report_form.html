@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    .btn{
+        background-color:teal;
+        color: #ffffff;
+    }
+    .form-select,.form-control{
+        margin: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+        font-size: 14px;
+    }
+</style>
+{% include 'doctor/doctor_navbar.html' %}
+<br><br><br><br><br>
+<div class="home-content">
+    {% include 'message_template.html'%}
+    <center>
+        <div class="container">
+            <div class="col-md-7">
+                <div class="card" style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                    <div class="card-body">
+                        <h5 style="color: #333;">Report Upload Form</h5>
+                        <form method="POST" enctype="multipart/form-data" class="border border-2 border-solid p-4">
+                            {% csrf_token %}
+                            <table>
+                                <tr>
+                                    <td style="font-weight: bold;">{{form.patient.label}}:</td>
+                                    <td>{{form.patient}}</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: bold;">{{form.report.label}}:</td>
+                                    <td>{{form.report}}</td>
+                                </tr>
+                            </table><br>
+                            <button class="btn" type="submit">SUBMIT</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </center>
+</div>
+</section>
+{% endblock %}

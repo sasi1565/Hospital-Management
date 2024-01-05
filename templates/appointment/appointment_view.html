@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+{% include 'doctor_navbar.html' %}
+    <br><br><br>
+    <center><h1>PATIENT DETAILS<h1><center>
+    <div class='container'><table class="table" border='2'>
+        <thead>
+          <tr>
+            <th scope="col">sno</th>
+            <th scope="col">Firstname</th>
+            <th scope="col">Lastname</th>
+            <th scope="col">symptoms</th>
+            <th scope="col">Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for i in appointments %}
+          <tr>
+            <td>{{ i.id }}</td>
+            <td>{{i.firstname}}</td>
+            <td>{{i.lastname}}</td>
+            <td>{{i.symptoms}}</td>
+            <td><a href="{% url 'doctordeletepatient' i.id %}">delete</a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table></div>
+{% endblock %}

@@ -1,0 +1,25 @@
+.material-symbols-outlined{
+    font-size: 40px;
+}
+body{
+    background-color: rgb(255, 255, 255);
+}
+.navbar{
+    background-color: #379eca;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+.navbar-brand:hover{
+    color:white;
+}
+.nav-link,.navbar-brand{
+    color: white;
+}
+.active1{
+    color: black;
+}
+.navbar-text a{
+    text-decoration: none;
+    color: white;
+}

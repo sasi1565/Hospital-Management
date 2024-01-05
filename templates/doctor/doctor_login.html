@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+<link rel="stylesheet" href="/static/login.css">
+
+{% include 'main_nav_bar.html' %}
+<style>
+    .navbar{
+        background-color: #379eca;
+
+    }
+</style>
+<div class="container-fluid">
+    {% include 'message_template.html'%}
+    <div class="row main-content bg-success text-center">
+        <div class="col-md-4 text-center company__info">
+            <span class="company__logo"><img src="/static/images/doctor2.png"></span>
+            <h4 class="company_title">Doctor Login</h4>
+        </div>
+        <div class="col-md-8 col-xs-12 col-sm-12 login_form ">
+            <div class="container-fluid">
+                <div class="row">
+                    <h2>Log In</h2>
+                </div>
+                <div class="row">
+                    <form control="" class="form-group" method="POST" action="/doctorlogin/">
+                        {% csrf_token %}
+                        <div class="row">
+                            <input type="text" name="username" id="username" class="form__input" placeholder="Username">
+                        </div>
+                        <div class="row">
+                            <!-- <span class="fa fa-lock"></span> -->
+                            <input type="password" name="password" id="password" class="form__input" placeholder="Password">
+                        </div>
+                        <div class="row">
+                            <input type="submit" value="Login" class="btn">
+                        </div>
+                        <div class="row">
+                            <p>Don't have an account? <a href="{% url 'doctorsignup'%}">Register Here</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+{% endblock %} -->
+
+
+
+

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<br><br><br><br>
+<center>
+<div class="container">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+<form method='POST'>
+    {% csrf_token %}
+    <p>Are you sure you want to Discharge
+         "{{obj}}"?</p><br><br>
+    <a class="btn btn-warning" href="{{request.META.HTTP_REFERER}}">Cancel</a>
+    <input class="btn btn-danger" type="submit" value="confirm">
+</form>
+</div>
+</div>
+</div>
+</center>
+{% endblock %}

@@ -1,0 +1,70 @@
+<link rel="stylesheet" href="/static/doctor_navbar.css">
+
+  <div class="sidebar">
+    <div class="logo-details">
+        <i></i>
+      <span class="logo_name">Doctor</span>
+    </div>
+      <ul class="nav-link">
+        <li>
+          <a href="{% url 'doctorhome' %}" class="{% if request.path == '/doctorhome/'%}active{% endif %}">
+            <i class='bx bx-grid-alt' ></i>
+            <span class="links_name">Dashboard
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="{% url 'reportform' %}" class="{% if request.path == '/reportform'%}active{% endif %}">
+            <i class="bx bx-note" style="color:white;"></i>
+            <span class="links_name">Report Form</span>
+          </a>
+        </li>
+        <li>
+          <a href="{% url 'report' %}" class="{% if request.path == '/report'%}active{% endif %}">
+            <i class='bx bxs-report' ></i>
+            <span class="links_name">Reports</span>
+          </a>
+        </li>
+        <li>
+          <a href="{% url 'doctor_feedback' %}" class="{% if request.path == '/doctor_feedback/'%}active{% endif %}">
+            <i class='bx bx-message-square-dots' ></i>
+            <span class="links_name">Feedback</span>
+          </a>
+        </li>
+        <li class="log_out">
+          <a href="{% url 'doctorlogout' %}">
+          <i class='bx bx-log-out'></i>
+          <span class="links_name">Log out</span>
+          </a>
+      </li>
+      
+      </ul>
+      
+  </div>
+  <section class="home-section">
+    <nav>
+      <div class="sidebar-button">
+        <i class='bx bx-menu sidebarBtn'></i>
+        <span class="dashboard">
+          {% if request.path == '/doctorhome/'%}Dashboard{% endif %}
+          {% if request.path == '/reportform'%}Report Form{% endif %}
+          {% if request.path == '/report'%} Reports {% endif %}
+          {% if request.path == '/doctor_feedback/'%} Feedback {% endif %}</span>
+          
+      </div>
+      <div class="profile-details">
+        <a href="{% url 'doctorprofile' %}"><img src="{{request.session.image}}" alt="profile"></a>
+        <span class="admin_name" style="font-size:30px">{{request.session.username}}</span>
+      </div>
+    </nav>
+    <script>
+      let sidebar = document.querySelector(".sidebar");
+   let sidebarBtn = document.querySelector(".sidebarBtn");
+   sidebarBtn.onclick = function() {
+     sidebar.classList.toggle("active");
+     if(sidebar.classList.contains("active")){
+     sidebarBtn.classList.replace("bx-menu" ,"bx-menu-alt-right");
+   }else
+     sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+   }
+    </script>

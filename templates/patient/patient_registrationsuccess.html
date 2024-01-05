@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+{% include 'message_template.html'%}
+<br><br><br><br>
+<center>
+<div class="container">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+        <h1>Registration Successful</h1>
+        <p>Your registration was successful.</p>
+    </div>
+    <p>wanted to login?<a href={% url "patientlogin" %}>login</a></p>
+</div></div></div>
+</center>
+<!-- {% if messages %}
+        <ul class="messages">
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+{% endblock %} -->

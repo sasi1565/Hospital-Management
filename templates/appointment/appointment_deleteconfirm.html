@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    p{
+        font-size:xx-large;
+    }
+</style>
+<center><br><br><br><br>
+<div class="row">
+    <div class='col-md-12'>
+        <div class="card card-body">
+<form method='POST'>
+    {% csrf_token %}
+    <p>Are you sure you want to delete "{{obj}}"?</p><br><br>
+    <a class="btn btn-warning" href="{{request.META.HTTP_REFERER}}">Cancel</a>
+    <input class="btn btn-danger" type="submit" value="confirm">
+</form>
+</div>
+</div>
+</div>
+</center>
+{% endblock %}

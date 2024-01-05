@@ -1,0 +1,44 @@
+
+
+
+<div id="close" class="update-area" >
+    <div class="cross-btn">
+        <a href="" onclick="closepage('close'); return false;"><span class="material-symbols-outlined mod">close</span></a>
+    </div>
+    {{record.firstname}}
+    <form action="">
+        <div class="update-content" id="close">
+            <div class="con">
+                <label for="firstname">First Name:</label>
+                <input name="firstname" type="text" class="form-control" id="firstname" value="{{record.firstname}}" required>
+            </div>
+            <div class="con">
+                <label for="lastname">Last Name:</label>
+                <input name="lastname" type="text" class="form-control" id="lastname" value="{{record.lastname}}" required>
+            </div>
+            <div class="con">
+                <label for="email">Email:</label>
+                <input name="email" type="email" class="form-control" id="email" value="{{record.email}}" required>
+            </div>
+            <div class="con">
+                <label for="date">Date-of-Birth:</label>
+                <input name="date" type="date" class="form-control" id="date" value="{{record.date}}" required>
+            </div>
+            <div class="con">
+                <label for="password">Password:</label>
+                <input name="password" type="password" class="form-control" id="password" value="{{record.password}}" required>
+            </div>
+            <div class="con">
+                <label for="department">Department:</label>
+                <select name="department" id="department" class="form-select">
+                    <option>   </option>
+                    <option value="cardiology">Cardiology</option>
+                    <option value="neurology">Neurology</option>
+                    <option value="ENT">ENT</option>
+                    <option value="oncology">Oncology</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    </form>
+</div>

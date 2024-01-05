@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+{% block content %}
+{% include 'main_nav_bar.html'%}
+{% include 'message_template.html'%}
+{% if form.errors %}
+<div class="error">
+    <strong>Error occured because:</strong>
+    {{ form.errors }}
+  </div>
+{% endif %}
+<br><br><br>
+<style>
+    .card{
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+    }
+    .styled-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin:right;
+    }
+
+    .styled-table td {
+        padding: 8px;
+    }
+    .btn{
+        background-color:teal;
+        color: #ffffff;
+        width: 100%;
+    }
+</style>
+<center>
+<div class="container">
+        <div class="col-md-7">
+            <div class="card" >
+                <div class="card-body">
+                    <h3>Registration Form</h3>
+                <form method="POST" class="border border-2 border-solid p-4" action="/doctorsignup/" enctype="multipart/form-data">
+                {% csrf_token %}
+                <table class="styled-table">
+                    <tr>
+                    <td style="font-weight: bold;">{{form.doctorForm.firstname.label}}:</td>
+                    <td style="border-radius:20px">{{form.doctorForm.firstname}}</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;">{{form.doctorForm.lastname.label}}:</td>
+                        <td>{{form.doctorForm.lastname}}</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;">{{form.doctorForm.email.label}}:</td>
+                        <td style="border-radius:20px">{{form.doctorForm.email}}</td>
+                        </tr>
+                    <tr>
+                        <td style="font-weight: bold;"><label for="experience">Experience:</label></td>
+                        <td><input type="number" class="form-control" name="experience" id="experience" min="0" max="60" required></td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;">{{form.doctorForm.qualification.label}}:</td>
+                        <td>{{form.doctorForm.qualification}}<br></td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;">{{form.doctorForm.department.label}}:</td>
+                        <td>{{form.doctorForm.department}}<br></td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;">{{form.doctorForm.username.label}}:</td>
+                        <td>{{form.doctorForm.username}}<br></td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;"><label for="password">Password:</label></td>
+                        <td><input type="password" class="form-control" name="password" id="password" required><br><br></td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;"><label for="cpassword"> Confirm Password:</label></td>
+                        <td><input type="password" class="form-control" name="cpassword" id="cpassword" required><br></td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;">{{form.doctorForm.age.label}}:</td>
+                        <td>{{form.doctorForm.age}}<br></td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;"><label for="date">Application Date:</label></td>
+                        <td><input type="date" value="{{form.date}}" min="{{form.date}}" class="form-control" name="date" id="date" required><br></td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;">{{form.doctorForm.address.label}}:</td>
+                        <td>{{form.doctorForm.address}}<br></td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;"><label for="phone">Phone:</label></td>
+                        <td><input name="mobile" type="tel" class="form-control" id="phone" placeholder="Enter your Mobile Number" pattern="[5-9]{1}[0-9]{9}" maxlength="10" required></td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;"><label>Gender:</label></td>
+                        <td><input class="form-check-input" type="radio" name="gender" value="Male" id="male"> <label for="male">Male</label> 
+                            <input class="form-check-input" type="radio" name="gender" value="Female" id="female"> <label for="female">Female</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;"><label for="image">Uplaod Profile Pic:</label></td>
+                        <td><br><input type="file" class="form-control" value="" name="image" id="image" required></td>
+                    </tr>
+                    </table><br>
+                    <button class="btn" type="submit">Register</button>
+                    <p>Already have an account?<a href="{% url 'doctorlogin' %}">login</a><p>
+            </form>
+        </div></div></div></div>
+    <!-- {% if form.errors %}
+        <div class="error">
+            <strong>Error occured because:</strong>
+            {{ form.errors }}
+          </div>
+    {% endif %} -->
+    </center>
+
+
+{% endblock %}

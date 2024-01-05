@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+{% include 'message_template.html'%}
+{% load static %}
+{% for i in instance %}
+{% if i %}
+    <img src="media/{{ i.report }}" alt="img">
+    <p>{{i.patient}}</p>
+{% else %}
+    <p>No report picture available.</p>
+{% endif %}
+{% endfor %}
+{% endblock %}

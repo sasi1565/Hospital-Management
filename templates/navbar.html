@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+  a:hover {
+    color: white !important;
+  }
+</style>
+<div class="bs-example">
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background:#379eca;">
+    <a href="/" class="navbar-brand">HOSPITAL MANAGEMENT SYSTEM</a>
+    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+      <div class="navbar-nav">
+
+        
+        <a href="{% url 'doctorclick'%}" class="nav-item nav-link">Doctor</a>
+        <a href="{% url 'patientclick'%}" class="nav-item nav-link">Patient</a>
+        <a href="{% url 'contactus'%}" class="nav-item nav-link">Contactus</a>
+        <a href="{% url 'aboutus' %}" class="nav-item nav-link">Aboutus</a>
+      </div>
+    </div>
+  </nav>
+</div>
+{% endblock %}

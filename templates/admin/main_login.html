@@ -1,0 +1,104 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <style>
+        .navbar{
+            background-color: #379eca;
+
+        }
+        #img{
+            width:100%;
+            height: 500px;
+        }
+        .wallpaper{
+            position:relative;
+        }
+        .wallpaper p{
+            font-size: 40px;
+            font-weight: 700;
+        }
+        .wallpaper .wallpaper-content{
+            position: absolute;
+            color: white;
+            top:18%;
+            left:3%;
+        }
+        .cards-area{
+            margin: 30px;
+        }
+        .card{
+            display : inline-block;
+            margin:40px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+        .card-img{
+            height:266px;
+        }
+        .card-text{
+            text-decoration: none;
+            color:black;
+            font-family:Arial, Helvetica, sans-serif;
+            font-size: 25px;
+            font-weight: 800;
+        }
+        .card-text:hover{
+            color:#ffff;
+        }
+        
+        
+    </style>
+</head>
+<body>
+    <div class="">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+              <a class="navbar-brand" style="font-size:30px; font-family:Arial, Helvetica, sans-serif" href="/main_login/"><strong>Hospital Management System</strong> </a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="float-left">
+                <div class="collapse navbar-collapse " id="navbarNav">
+                    <ul class="navbar-nav">
+                      <li class="nav-item">
+                        <a class="nav-link active" style="font-size: large;" aria-current="page" href="/admin_login/">Admin</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link active" style="font-size: large;" aria-current="page" href="/contactus/">Contact Us</a>
+                      </li>
+                    </ul>
+                  </div>
+              </div>
+            </div>
+          </nav>
+    </div>
+    <div class="wallpaper">
+        <img id="img"src="/static/login-page-img.jpeg/">
+        <div class="wallpaper-content">
+            <p>Welcome to Hospital Management System</p>
+        </div>
+    </div>
+    <div class="cards-area">
+        <center>
+            <div class="card" style="width: 18rem;">
+                <img src="https://th.bing.com/th?id=OIP.gwKavjaWzOh0jtvpn_5r3QHaHa&w=250&h=250&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" class="card-img-top card-img" alt="user login">
+                <div class="card-body" style="background-color: lightgreen;">
+                    <a class="card-text" href="/patientclick/">Patient Login</a>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem;">
+                <img src="https://th.bing.com/th/id/OIP.4-ie2A9hJcvrYsDh4mEUSgHaHa?w=205&h=205&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="Doctor login">
+                <div class="card-body" style="background-color: skyblue;">
+                  <a class="card-text" href="/doctorclick/">Doctor Login</a>
+                </div>
+            </div>
+        </center>
+    </div>
+
+    {% include 'scripts.html' %}
+</body>
+</html>
